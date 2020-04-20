@@ -1,0 +1,73 @@
+<div class="left-pane">
+  <nav class="menu">
+    <ul>
+      <li (click)="firstsidemenu()" class="rootMenu deactive"><a>Agency
+          Management</a>
+        <ul [hidden]="!firstsubmenu">
+          <li (click)="agentlisting()"><a class="">
+              Agent
+              Listing
+            </a></li>
+          <li (click)="agenttransfer()"><a>Transfer</a></li>
+          <!---->
+        </ul>
+        <!---->
+      </li>
+      <li (click)="secondsidemenu()" class="rootMenu active"><a>Risk Management</a>
+        <ul [hidden]="!secondsubmenu">
+          <li><a>
+              Net
+              Exposure
+            </a></li>
+          <li><a>Bet Ticker</a></li>
+        </ul>
+      </li>
+      <li (click)="thirdsidemenu()" class="rootMenu deactive"><a>Reports</a>
+        <ul [hidden]="!thirdsubmenu">
+          <li class="nav-item"><a class="nav-link">My Bets
+              Report</a></li>
+          <li class="nav-item"><a class="nav-link">Profit Loss
+              Report</a></li>
+          <li class="nav-item"><a class="nav-link">Transfer
+              Statement</a></li>
+          <li class="nav-item"><a class="nav-link">Casino
+              Result</a></li>
+          <li class="nav-item"><a class="nav-link">Game
+              Report</a></li>
+          <li class="nav-item"><a class="nav-link">
+              Message Report
+              <!----></a></li>
+        </ul>
+        <!---->
+      </li>
+      <li (click)="fourthsidemenu()" class="rootMenu deactive"><a>Account
+          Management</a>
+        <ul [hidden]="!fourthsubmenu">
+          <li class="nav-item"><a class="nav-link">
+              Account
+              Statement
+            </a></li>
+          <li class="nav-item"><a class="nav-link">Clients
+              Account Statement</a></li>
+          <li class="nav-item" (click)="balanceinformation()"><a class="nav-link">Balance</a></li>
+        </ul>
+        <!---->
+      </li>
+      <li (click)="fifthsidemenu()" class="rootMenu"><a>Admin Users</a>
+        <ul [hidden]="!fifthsubmenu">
+          <li class="nav-item"><a class="nav-link">Create
+              Account</a></li>
+        </ul>
+        <!---->
+      </li>
+      <li (click)="sixthsidemenu()" class="rootMenu deactive"><a class="blinking-new">Live Casino</a>
+        <ul [hidden]="!sixthsubmenu">
+          <li class="nav-item"><a class="nav-link">Live Casino</a>
+          </li>
+        </ul>
+        <!---->
+      </li>
+    </ul>
+  </nav>
+
+</div>

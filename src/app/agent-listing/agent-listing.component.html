@@ -1,0 +1,171 @@
+<app-header></app-header>
+<fixed-sidebar></fixed-sidebar>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xl-2 col-lg-2 col-md-2 d-sm-none d-none"></div>
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+      <div class="row">
+        <div class="col-xl-1 col-lg-1 col-md-0  col-12">
+
+        </div>
+
+        <div class="col-xl-11 col-lg-11  col-md-12 col-12 pl-5">
+          <div class="row">
+            <div class="col-12 mb-3">
+              <div class="balance">
+                <div class="status">
+                  <dl class="status-list">
+                    <dt>Balance Down:</dt>
+                    <dd class="negative-points">-1165.55</dd>
+                    <dt>Balance Up:</dt>
+                    <dd class="negative-points">-2310.65</dd>
+                    <dt>Net Exposure:</dt>
+                    <dd class="positive-points">0.00</dd>
+                    <dt>Available Credit:</dt>
+                    <dd class="normal-points">27623.80</dd>
+                  </dl>
+                  <div data-v-2b71b51b="" class="d-inline-block float-right" style="margin-top: -3.9px !important;">
+                    <button data-v-2b71b51b="" class="btn btn-secondary d-inline-block">Refresh</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="balanceinformation">
+          <div class="row">
+            <div class="col-12">
+              <div class="header">
+                <h1>Agent Listing</h1>
+                <div class="d-inline-block m-t-10"><label class="labelsearch">Search By User Name</label>
+                  <div class="search-box-container d-inline-block ml-2"><input type="text" name="uname"
+                      placeholder="Enter Atleast 3 character" autocomplete="off" class="event-search">
+                    <!---->
+                    <!---->
+                  </div>
+                </div>
+                <!---->
+                <div (click)="addagent()" class="button-options"><a  class="btn btn-primary m-l-5"
+                    style="font-size: 13px;">New Agent
+
+                  </a></div>
+                <div class="button-options">
+                  <div id="export_1586457647060" class=""><span class="btn btn-secondary m-l-5">Download CSV</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="Downlineheader col-12">
+              <span><i>Downline Listing</i></span>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="balance-info-table agent-table col-12">
+              <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <!-- LoginName Column -->
+                <ng-container matColumnDef="LoginName">
+                  <th mat-header-cell *matHeaderCellDef> Login Name </th>
+                  <td mat-cell *matCellDef="let element" class="login-name tablefixedwidth"> {{element.LoginName}} </td>
+                </ng-container>
+
+                <!-- Username Column -->
+                <ng-container matColumnDef="Username">
+                  <th mat-header-cell *matHeaderCellDef> User Name </th>
+                  <td mat-cell *matCellDef="let element" class="user-name tablefixedwidth"> {{element.Username}} </td>
+                </ng-container>
+
+                <!-- AccountType Column -->
+                <ng-container matColumnDef="AccountType">
+                  <th mat-header-cell *matHeaderCellDef> Account Type </th>
+                  <td mat-cell *matCellDef="let element" class="tablefixedwidth"> {{element.AccountType}} </td>
+                </ng-container>
+
+                <!-- Downline Column -->
+                <ng-container matColumnDef="Downline">
+                  <th mat-header-cell *matHeaderCellDef> Downline </th>
+                  <td mat-cell *matCellDef="let element" class="tablefixedwidth"> {{element.Downline}} <img style="width: 19px;"
+                      src="../../assets/hierarchical-structure.png" alt=""></td>
+                </ng-container>
+
+                <!-- BettingStatus Column -->
+                <ng-container matColumnDef="BettingStatus">
+                  <th mat-header-cell *matHeaderCellDef> Betting Status </th>
+                  <td mat-cell *matCellDef="let element" class="tablefixedwidth"> {{element.BettingStatus}} <img style="width: 18px;"
+                      src="../../assets/unlock.png" alt=""> </td>
+                </ng-container>
+
+                <!-- Status Column -->
+                <ng-container matColumnDef="Status">
+                  <th mat-header-cell *matHeaderCellDef> Status </th>
+                  <td mat-cell *matCellDef="let element" class="tablefixedwidth"> {{element.Status}} </td>
+                </ng-container> 
+
+                <!-- Details Column -->
+                <ng-container matColumnDef="Details">
+                  <th mat-header-cell *matHeaderCellDef> Details </th>
+                  <td mat-cell *matCellDef="let element" class="tablefixedwidth"> {{element.Details}} <img class="cursor" style="width: 19px;" (click)="downlineactivity()"
+                      src="../../assets/eye.png" alt=""> </td>
+                </ng-container>
+
+
+                <!-- Given Column -->
+                <ng-container matColumnDef="Given">
+                  <th mat-header-cell *matHeaderCellDef> Give </th>
+                  <td mat-cell *matCellDef="let element" class="positive-points tablefixedwidth"> {{element.Given}}
+                  </td>
+                </ng-container>
+
+                <!-- Take Column -->
+                <ng-container matColumnDef="Take">
+                  <th mat-header-cell *matHeaderCellDef> Take </th>
+                  <td mat-cell *matCellDef="let element" class="positive-points tablefixedwidth"> {{element.Take}} </td>
+                </ng-container>
+
+                <!-- NetExposure Column -->
+                <ng-container matColumnDef="NetExposure">
+                  <th mat-header-cell *matHeaderCellDef> Net Exposure </th>
+                  <td mat-cell *matCellDef="let element" class="negative-points tablefixedwidth">
+                    {{element.NetExposure}} </td>
+                </ng-container>
+
+                <!-- CreditLimit Column -->
+                <ng-container matColumnDef="CreditLimit">
+                  <th mat-header-cell *matHeaderCellDef>Credit Limit</th>
+                  <td mat-cell *matCellDef="let element" class="tablefixedwidth"> {{element.CreditLimit}} </td>
+                </ng-container>
+
+                <!-- AvailableCredit Column -->
+                <ng-container matColumnDef="AvailableCredit">
+                  <th mat-header-cell *matHeaderCellDef> Available Credit </th>
+                  <td mat-cell *matCellDef="let element" class="tablefixedwidth"> {{element.AvailableCredit}} </td>
+                </ng-container>
+
+                <!-- Created Column -->
+                <ng-container matColumnDef="Created">
+                  <th mat-header-cell *matHeaderCellDef> Created </th>
+                  <td mat-cell *matCellDef="let element" class="status-1 tablefixedwidth"> {{element.Created}} </td>
+                </ng-container>
+
+
+                <!-- LastLogin Column -->
+                <ng-container matColumnDef="LastLogin">
+                  <th mat-header-cell *matHeaderCellDef> Last Login </th>
+                  <td mat-cell *matCellDef="let element" class="status-1 tablefixedwidth"> {{element.LastLogin}} </td>
+                </ng-container>
+
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

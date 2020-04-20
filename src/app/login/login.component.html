@@ -1,0 +1,52 @@
+
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100 p-l-55 p-r-55 p-b-54">
+            <form class="login100-form validate-form" autocomplete="off">
+             
+                  <div class="text-center mb-2">
+                      <img src="../../assets/logo.png" alt="logo">
+                    </div>
+                <div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired">
+                    <span class="label-input100">Enter Username</span>
+                    <!-- <input class="input100" type="text" name="username" oncopy="return false" onpaste="return false" autocomplete="off"
+                    placeholder="Type your username"> -->
+                    <input type="text" name="loginid" placeholder="Enter Login Id" class="form-control" aria-required="true" aria-invalid="false">
+                    <!-- <span class="focus-input100" data-symbol="&#xf206;"></span> -->
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Password is required">
+                    <span class="label-input100">Enter Password</span>
+                    <!-- <input class="input100" type="password" oncopy="return false" onpaste="return false" autocomplete="off"
+                    name="pass" placeholder="Type your password"> -->
+                    <input type="password" name="password" placeholder="Enter password" class="form-control" aria-required="true" aria-invalid="false">
+                    <!-- <span class="focus-input100" data-symbol="&#xf190;"></span> -->
+                </div>
+            
+                <div class="form-group form-check mt-4 mb-3">
+                    <label class="form-check-label">
+                      <input class="form-check-input cursor" type="checkbox" name="remember"> <span class="ml-3 age-confirmation" (click)="confirm18()"><u>I confirm that I am above 18 years of age</u></span>
+                    </label>
+                  </div>
+
+                <!-- <div class="text-right p-t-8 p-b-31"> -->
+                    <!-- <a href="#">
+                        Forgot password?
+                    </a> -->
+                <!-- </div> --> 
+                
+                <div class="container-login100-form-btn">
+                    <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+                        <button class="login100-form-btn" [routerLink]="['balance_information']" >
+                            Login
+                        </button>
+                    </div>
+                </div>
+
+        
+            </form>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

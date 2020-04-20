@@ -1,0 +1,241 @@
+
+   .positive-points{
+    color: #3cd247 !important;
+    font-family: Roboto;
+    letter-spacing: 1px;
+    font-weight: bolder;
+}
+h3{
+ color: #cae0e8;
+ font-size: 24px;
+ font-family: Lato,Avenir,Verdana,Nunito;
+}
+.negative-points{
+ color: #f43 !important;
+ font-family: Roboto;
+ letter-spacing: 1px;
+ font-weight: bolder;
+}
+
+.normal-points{
+ color: #fff !important;
+ font-family: Roboto;
+ letter-spacing: 1px;
+
+}
+.balance-info-header-inner{
+    background-color: #222951;
+    padding: 7px 0 0 7px;
+    color: #fff;
+}
+.inner-head{
+    text-align: left;
+    /* vertical-align: middle; */
+    font-size: 13px;
+    color: #fff;
+    border: 0;
+    line-height: 20px;
+}
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    /* color: #212529; */
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    /* border: 1px solid transparent; */
+    padding: .375rem .75rem;
+    font-size: 14px;
+    line-height: 1;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.btn-success {
+    color: #fff;
+    background-color: #175928;
+    padding: 0.6rem;
+}
+
+.btn-success:hover {
+    color: #fff;
+    background-color: #28a745;
+}
+.btn-primary {
+ color: #fff;
+ background-color: #11374A;
+ padding: 0.7rem;
+}
+.btn-primary:hover {
+ color: #222951;
+ background-color: #fff;
+}
+.btn-info{
+ color: white;
+ background-color: #333D79;
+ padding: 0.6rem;
+}
+.btn-info:hover{
+ color: #222951;
+ background-color: #fff;
+}
+
+input{
+    border: 1px solid white;
+}
+.Downlineheader span i{
+ color: #fff;
+ font-family: Roboto;
+ font-size: 14px;
+}
+table {
+ width: 100%;
+}
+.agent-table{
+   height: 367px;
+   overflow-y: auto;
+   overflow-x: auto;
+ 
+}
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell{
+   border: none;
+}
+tr.mat-row:nth-child(odd) {
+ height: 40px;
+ background-color: #111;
+}
+/* table inner styles */
+
+.login-name{    
+ color:#2BE5DD !important;
+}
+.user-name{    
+ color:#2BE5DD !important;
+}
+
+.balance {
+ background: rgba(0, 0, 0, 0.4);
+ padding: 10px 20px;
+ margin-top: 5px;
+ width: 100%;
+}
+.balance dd, .balance dt, .balance dl {
+ display: inline-block;
+ margin-bottom: 0;
+}
+dt{
+ color: #fff;
+ font-family: Roboto;
+ font-size: 14px;
+ font-weight: 500;
+}
+.balance dd {
+ margin-right: 22px;
+ margin-left: 10px;
+}
+.float-right {
+ float: right!important;
+}
+.d-inline-block {
+ display: inline-block!important;
+}
+dl.status-list{
+ margin-top: 2px;
+}
+button.btn.btn-secondary.d-inline-block {
+ background-color: rgb(17, 55, 74);
+ color: rgb(255, 255, 255);
+ border-color: transparent;
+ font-family: Roboto !important;
+}
+.mat-table {
+background: none !important;
+}
+.header {
+ margin-bottom: 10px;
+ border-bottom: 1px solid #cae0e8;
+ float: left;
+ width: 100%;
+}
+.header h1 {
+ color: #cae0e8;
+ margin-bottom: 5px;
+ margin-right: 20px;
+ margin-top: 2px;
+ font-size: 22px;
+ width: 300px;
+ float: left;
+ line-height: 42px;
+}
+.search-box-container {
+ position: relative;
+}
+.search-box-container input {
+ height: 32px;
+ padding: 0 10px;
+}
+.header .button-options {
+ float: right;
+ margin-top: 9px;
+}
+.btn-primary, .btn-primary:hover {
+ background-color: #333d79ff;
+ color: #FFFFFF;
+}
+.btn-primary {
+ border: 0;
+ border-radius: 0;
+ padding: 0.7rem;
+}
+.btn-secondary, .btn-secondary:hover {
+ background-color: #11374a;
+ color: #FFFFFF;
+ border-color: transparent;
+}
+.btn-secondary {
+ border-radius: 0;
+ padding: 0.6rem;
+}
+.labelsearch {
+ display: inline-block;
+ margin-bottom: .5rem;
+ color: #fff;
+ font-family: Roboto;
+}
+td.mat-cell, .mat-footer-cell {
+ color: #fff;
+ font-family: Roboto;
+ font-size: 14px;
+}
+th.mat-header-cell {
+ color: #fff;
+ font-family: Roboto;
+ font-size: 14px;
+ font-weight: 500;
+}
+.tablefixedwidth {
+ width: auto;
+}
+.balanceinformation {
+ background: rgba(0, 0, 0, 0.4);
+ padding: 0.4em 1em 0.4em 1em;
+}
+.alltransfer:hover{
+    color: #19692c!important;
+}
+.alltransfer{
+    color: #28a745!important;
+    font-family: Roboto;
+    letter-spacing: 1px;
+}
+.status-text-danger{
+    color: #f43 !important;
+    font-family: Roboto;  
+}
+.transfersubmitbtn{
+    padding: .375rem .75rem !important;
+}

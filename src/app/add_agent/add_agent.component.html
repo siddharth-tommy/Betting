@@ -1,0 +1,143 @@
+<app-header></app-header>
+<fixed-sidebar></fixed-sidebar>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xl-2 col-lg-2 col-md-2 d-sm-none d-none"></div>
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+      <div class="row">
+        <div class="col-xl-1 col-lg-1 col-md-0  col-12">
+
+        </div>
+
+        <div class="col-xl-11 col-lg-11  col-md-12 col-12 pl-5">
+          <div class="row">
+            <div class="col-12 mb-3">
+              <div class="balance">
+                <div class="status">
+                  <dl class="status-list">
+                    <dt>Balance Down:</dt>
+                    <dd class="negative-points">-1165.55</dd>
+                    <dt>Balance Up:</dt>
+                    <dd class="negative-points">-2310.65</dd>
+                    <dt>Net Exposure:</dt>
+                    <dd class="positive-points">0.00</dd>
+                    <dt>Available Credit:</dt>
+                    <dd class="normal-points">27623.80</dd>
+                  </dl>
+                  <div data-v-2b71b51b="" class="d-inline-block float-right" style="margin-top: -3.9px !important;">
+                    <button data-v-2b71b51b="" class="btn btn-secondary d-inline-block">Refresh</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="balanceinformation">
+
+            <div class="row mt-3">
+              <div class="agent-table col-12">
+                <form data-vv-scope="createAccountForm">
+                  <section class="d-inline-block v-t">
+                    <div class="apl-section-inner">
+                      <legend class="p-b-10">Information</legend>
+                      <div>
+                        <div class="apl-form-row m-b-30"><label>Login Name</label> <span><input placeholder="Login Id"
+                              type="text"  name="LoginId"
+                              aria-required="true" aria-invalid="false"> 
+                            <!---->
+                            <!----></span></div>
+                        <div class="apl-form-row m-b-40"><label>Password</label> <span><input placeholder="Password"
+                              type="password" name="password" aria-required="true" aria-invalid="false"> 
+                            <!----></span></div>
+                        <div class="apl-form-row m-b-40"><label>Repeat Password</label> <span><input
+                              placeholder="Confirm Password" type="password" name="confirmPassword" aria-required="true"
+                              aria-invalid="false"> 
+                            <!----></span></div>
+                        <div class="apl-form-row m-b-30"><label>User Status</label>
+                          <div class="custom-control custom-radio d-inline-block">
+                            <div class="custom-control custom-radio"><input id="userstatustrue" type="radio"
+                                name="userstatus" autocomplete="off" class="custom-control-input cursor" value="1"><label
+                                for="userstatustrue" class="custom-control-label">ACTIVE</label></div>
+                          </div>
+                          <div class="custom-control custom-radio d-inline-block m-l-10">
+                            <div class="custom-control custom-radio"><input id="userstatusfalse" type="radio"
+                                name="userstatus" autocomplete="off" class="custom-control-input cursor" value="0"><label
+                                for="userstatusfalse" class="custom-control-label">INACTIVE</label></div>
+                          </div>
+                        </div>
+                        <div class="apl-form-row m-b-30"><label>Bet Status</label>
+                          <div class="custom-control custom-radio d-inline-block">
+                            <div class="custom-control custom-radio"><input id="betstatustrue" type="radio"
+                                name="betstatus" autocomplete="off" class="custom-control-input cursor" value="1"><label
+                                for="betstatustrue" class="custom-control-label">ACTIVE</label></div>
+                          </div>
+                          <div class="custom-control custom-radio d-inline-block m-l-10">
+                            <div class="custom-control custom-radio"><input id="betstatusfalse" type="radio"
+                                name="betstatus" autocomplete="off" class="custom-control-input cursor" value="0"><label
+                                for="betstatusfalse" class="custom-control-label">INACTIVE</label></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                  <section class="d-inline-block v-t">
+                    <div class="apl-section-inner">
+                      <legend class="p-b-10">Credit</legend>
+                      <div class="apl-form-row m-b-30"><label>Credit Limit</label> <span><input
+                            placeholder="Credit Reference" type="text" name="creditReference"
+                             aria-required="true"
+                            aria-invalid="false"> 
+                          <!----> <span class="float-right cref-height creditlimitnumber">
+                            &gt;=0
+                            <br>&lt;= 27623.80
+                          </span></span></div>
+                      <div class="apl-form-row m-b-30"><label>User Rate</label> <span><input placeholder="User Rate"
+                            type="text" name="userRate" 
+                            aria-required="true" aria-invalid="false"> 
+                          <!----></span></div>
+                    </div>
+                  </section>
+                  <section class="d-inline-block v-t">
+                    <div class="apl-section-inner">
+                      <legend class="p-b-10">Account Detais</legend>
+                      <div>
+                        <div class="apl-form-row m-b-20">
+                          <div class="d-inline-block">
+                            <div><label>Select Level</label> <span><select name="level" (change)="userselect($event.target.value)" class="form-control"
+                                  aria-required="true" aria-invalid="false">
+                                  <option value="">Select Level</option>
+                                  &lt;<option value="agent"> Agent </option>
+                                  <option value="user"> User </option>
+                                </select></span> 
+                              <!---->
+                            </div>
+                          </div>
+                        </div>
+                        <div [hidden]="!userselected" class="apl-form-row"><label>Expouser Limit</label> <span><input placeholder="Expouser Limit"
+                          type="text" name="Expouserlimit" 
+                          aria-required="true" aria-invalid="false"> 
+                        <!----></span></div>
+                      </div>
+                      <!---->
+                    </div>
+                  </section>
+                  <section class="d-inline-block v-t">
+                    <div class="apl-section-inner">
+                      <legend class="p-b-10">Notes</legend> <textarea name="Notes" aria-required="false"
+                        aria-invalid="false"></textarea> 
+                    </div>
+                  </section>
+                  <div class="form-group text-right">
+                   <button (click)="agentlistpage()" class="btn btn-link cancelagent">Cancel</button> 
+                   <button class="btn btn-primary m-l-5">Create</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

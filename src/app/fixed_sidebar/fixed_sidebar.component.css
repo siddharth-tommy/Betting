@@ -1,0 +1,64 @@
+.left-pane{
+background: rgba(0,0,0,.33);
+max-width: 11%;
+height: 100%;
+position: fixed;
+z-index: 1;
+}
+nav.menu {
+  width: 100%;
+  overflow: hidden;
+  -webkit-transition: width .3s,opacity .3s .3s,ease;
+  -moz-transition: width .3s,opacity .3s .3s,ease;
+  -o-transition: width .3s,opacity .3s .3s,ease;
+  transition: width .3s,opacity .3s .3s,ease;
+}
+ul, li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+nav.menu>ul>li>a {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  width: 184px;
+  padding: 10px;
+  text-decoration: none;
+  background: rgba(255,255,255,.15);
+  font-family: Roboto;
+  font-size: 13px;
+  line-height: 20px;
+  color: #fff;
+  cursor: pointer;
+}
+nav.menu>ul>li.rootMenu ul {
+  width: 100%;
+  transform-origin: center top;
+  font-family: Roboto;
+  font-size: 13px;
+  line-height: 20px;
+  color: #fff;
+  cursor: pointer;
+}
+nav.menu>ul>li.rootMenu ul>li>a {
+  display: block;
+  width: 100%;
+  padding: 10px 10px 10px 20px;
+  text-decoration: none;
+  font-family: Roboto;
+  font-size: 13px;
+  line-height: 20px;
+  color: #fff;
+  cursor: pointer;
+}
+nav.menu>ul>li>a:hover {
+  background: rgba(255,255,255,.1);
+  color:  rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+}
+nav.menu>ul>li.rootMenu ul>li>a:hover {
+  background: rgba(255,255,255,.1);
+  color:  rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+}

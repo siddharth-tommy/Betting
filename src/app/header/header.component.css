@@ -1,0 +1,95 @@
+.top-bar{
+    background-color: #222951;
+    /* position: fixed; */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 90px;
+}
+img{
+    cursor:pointer
+}
+.month, .time-zone{
+    color:#fff;
+    font-size: 15px;
+    font-family: Roboto !important;
+}
+.time{
+    color: #FFFFFF;
+    font-size: 20px;
+    font-family: Roboto !important;
+    font-weight: 500;
+}
+
+.user-status .status-1{
+    color: #fff;
+    font-family: Roboto !important;
+    font-size: 14px;
+    line-height: unset;
+}
+.user-status .status-2{
+    color: #fff;
+    /* font-family: Lato,Avenir,Verdana,Nunito; */
+    font-family: Roboto !important;
+    font-size: 11px;
+    line-height: unset;
+}
+@media only screen 
+and (min-width : 200px) 
+and (max-width : 767px)  {
+    .top-bar{
+        background-color: #222951;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    height: auto;
+    }
+}
+.settingsicon{
+    -webkit-transform: rotate(0deg);
+    -webkit-transition: -webkit-transform 0.25s ease-in-out;
+    transform: rotate(0deg);
+    transition: -webkit-transform 0.25s ease-in-out;
+    -ms-transform: rotate(0deg);
+    -ms-transform: -webkit-transform 0.25s ease-in-out;
+    -o-transform: rotate(0deg);
+    -o-transform: -webkit-transform 0.25s ease-in-out;
+}
+.settingsicon:hover{
+    cursor: pointer;
+    -webkit-transform: rotate(360deg);
+    -webkit-transition: -webkit-transform 0.25s ease-in-out;
+    transform: rotate(360deg);
+    transition: -webkit-transform 0.25s ease-in-out;
+    -ms-transform: rotate(360deg);
+    -ms-transform: -webkit-transform 0.25s ease-in-out;
+    -o-transform: rotate(360deg);
+    -o-transform: -webkit-transform 0.25s ease-in-out;
+}
+.card-outline-secondary{
+    background:#333d79ff;
+}
+.labelpassword{
+    color: #fff;
+    font-family: Roboto;
+    font-size: 14px;
+}
+input.passwordtext{
+    color: #495057 !important;
+    font-size: 18px !important;
+  
+}
+:host ::ng-deep::placeholder{
+    color: #495057 !important;
+  
+}
+.timezone:hover{
+    cursor: pointer;
+    color: #ccc;
+}
+.timeborder{
+    margin-top: 0;
+    margin-bottom: 0;
+    border: none;
+    border-top: 1px solid rgba(0,0,0,.1);
+}

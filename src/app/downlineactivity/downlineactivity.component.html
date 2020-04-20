@@ -1,0 +1,684 @@
+<app-header></app-header>
+<fixed-sidebar></fixed-sidebar>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xl-2 col-lg-2 col-md-2 d-sm-none d-none"></div>
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+      <div class="row">
+        <div class="col-xl-1 col-lg-1 col-md-0  col-12">
+
+        </div>
+
+        <div class="col-xl-11 col-lg-11  col-md-12 col-12 pl-5">
+          <div class="row">
+            <div class="col-12 mb-3">
+              <div class="balance">
+                <div class="status">
+                  <dl class="status-list">
+                    <dt>Balance Down:</dt>
+                    <dd class="negative-points">-1165.55</dd>
+                    <dt>Balance Up:</dt>
+                    <dd class="negative-points">-2310.65</dd>
+                    <dt>Net Exposure:</dt>
+                    <dd class="positive-points">0.00</dd>
+                    <dt>Available Credit:</dt>
+                    <dd class="normal-points">27623.80</dd>
+                  </dl>
+                  <div data-v-2b71b51b="" class="d-inline-block float-right" style="margin-top: -3.9px !important;">
+                    <button data-v-2b71b51b="" class="btn btn-secondary d-inline-block">Refresh</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="balanceinformation">
+            <div class="row">
+              <div class="col-12">
+                <div class="m-b-10 detail-header">
+                  <ul>
+                    <li><span class="text-white"><a (click)="agentlisting()"><i class="text-info">Downline Listing
+                          </i></a> &gt; Kabir78
+                      </span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <ul role="tablist" class="nav nav-tabs">
+                  <li role="presentation" (click)="tabchange('activity')" class="nav-item"><a
+                      [ngClass]="{'activetabs': activetab=='activity'}" role="tab" aria-setsize="8" aria-posinset="1"
+                      class="nav-link active">Activity</a></li>
+                  <li role="presentation" (click)="tabchange('balance')" class="nav-item"><a
+                      [ngClass]="{'activetabs': activetab=='balance'}" role="tab" tabindex="-1" aria-setsize="8"
+                      aria-posinset="2" class="nav-link">Balance</a></li>
+                  <li role="presentation" (click)="tabchange('betlist')" class="nav-item"><a
+                      [ngClass]="{'activetabs': activetab=='betlist'}" role="tab" tabindex="-1" aria-setsize="8"
+                      aria-posinset="3" class="nav-link">Betlist</a></li>
+                  <li role="presentation" (click)="tabchange('betting')" class="nav-item"><a
+                      [ngClass]="{'activetabs': activetab=='betting'}" role="tab" tabindex="-1" aria-setsize="8"
+                      aria-posinset="4" class="nav-link">Betting
+                      P&amp;L</a></li>
+                  <li role="presentation" (click)="tabchange('statement')" class="nav-item"><a
+                      [ngClass]="{'activetabs': activetab=='statement'}" role="tab" tabindex="-1" aria-posinset="5"
+                      class="nav-link">Statement</a></li>
+                  <li role="presentation" (click)="tabchange('transferstatement')" class="nav-item"><a
+                      [ngClass]="{'activetabs': activetab=='transferstatement'}" role="tab" tabindex="-1"
+                      aria-setsize="8" aria-posinset="6" class="nav-link">Transfer
+                      Statement</a></li>
+                  <li role="presentation" (click)="tabchange('netexposure')" class="nav-item"><a
+                      [ngClass]="{'activetabs': activetab=='netexposure'}" role="tab" tabindex="-1" aria-setsize="8"
+                      aria-posinset="7" class="nav-link">Net Exposure</a>
+                  </li>
+                  <li role="presentation" (click)="tabchange('clientsaccountstatement')" class="nav-item"><a
+                      [ngClass]="{'activetabs': activetab=='clientsaccountstatement'}" role="tab" tabindex="-1"
+                      aria-setsize="8" aria-posinset="8" class="nav-link">Clients Account
+                      Statement</a></li>
+                </ul>
+              </div>
+            </div>
+            <div [hidden]="!activitytab" class="row mt-3">
+              <div class="agent-table col-12">
+                <div class="activitytab">
+                  <div class="left-panel">
+                    <table class="table m-t-60">
+                      <tbody>
+                        <tr>
+                          <td class="text-right">Win</td>
+                        </tr>
+                        <tr></tr>
+                        <tr>
+                          <td class="text-right">P&amp;L</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                    <!-- Today Column -->
+                    <ng-container matColumnDef="today">
+                      <th mat-header-cell *matHeaderCellDef> Today </th>
+                      <td mat-cell *matCellDef="let element" class="activitytable positive-points"> {{element.today}}
+                      </td>
+                    </ng-container>
+
+                    <!-- 3 days Column -->
+                    <ng-container matColumnDef="threedays">
+                      <th mat-header-cell *matHeaderCellDef> 3 Days </th>
+                      <td mat-cell *matCellDef="let element" class="activitytable negative-points">
+                        {{element.threedays}} </td>
+                    </ng-container>
+
+                    <!-- 7 Days Column -->
+                    <ng-container matColumnDef="sevendays">
+                      <th mat-header-cell *matHeaderCellDef> 7 Days </th>
+                      <td mat-cell *matCellDef="let element" class="activitytable negative-points">
+                        {{element.sevendays}}</td>
+                    </ng-container>
+
+                    <!-- 30 Days Column -->
+                    <ng-container matColumnDef="thirtydays">
+                      <th mat-header-cell *matHeaderCellDef> 30 Days </th>
+                      <td mat-cell *matCellDef="let element" class="activitytable negative-points">
+                        {{element.thirtydays}} </td>
+                    </ng-container>
+
+                    <!-- Lifetime Column -->
+                    <ng-container matColumnDef="lifetime">
+                      <th mat-header-cell *matHeaderCellDef> Lifetime </th>
+                      <td mat-cell *matCellDef="let element" class="activitytable negative-points"> {{element.lifetime}}
+                      </td>
+                    </ng-container>
+
+
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div [hidden]="!balancetab" class="row mt-3">
+              <div class="agent-table col-12">
+                <table class="w-auto table table-striped table-balance">
+                  <tbody>
+                    <tr>
+                      <th>Net Exposure</th>
+                      <td class=" text-right negative-points">0.00</td>
+                    </tr>
+                    <tr>
+                      <th>Balance Down</th>
+                      <td class=" text-right negative-points">-527.00</td>
+                    </tr>
+                    <tr>
+                      <th>Balance Up</th>
+                      <td class=" text-right positive-points">10527.00</td>
+                    </tr>
+                    <tr>
+                      <th>Credit Limit</th>
+                      <td class="text-right positive-points">10000.00</td>
+                    </tr>
+                    <tr>
+                      <th>Available Credit</th>
+                      <td class="text-right normal-points">7897.30</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div [hidden]="!betlisttab" class="row mt-3">
+              <div class="col-12">
+                <input style="width: 100px;
+                    padding: 4px;cursor: pointer;" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1"
+                  placeholder="Select Date">
+                <owl-date-time #dt1 pickerType="calendar"></owl-date-time>
+                <input style="width: 100px;
+                      padding: 4px;cursor: pointer;" class="m-l-5" [owlDateTime]="dt2" [owlDateTimeTrigger]="dt2"
+                  placeholder="Select Date">
+                <owl-date-time #dt2 pickerType="calendar"></owl-date-time>
+                <button type="submit" class="btn btn-apply m-l-5">Apply</button>
+                <button type="submit" class="btn btn-cancel m-l-5">Cancel</button>
+                <div class="mt-2">
+                  <ul role="tablist" class="nav nav-tabs">
+                    <li role="presentation" (click)="subtabchange('current')" class="nav-item"><a
+                        [ngClass]="{'activetabs': subactivetab=='current'}" role="tab" aria-selected="true"
+                        aria-setsize="2" aria-posinset="1" class="nav-link">Current</a></li>
+                    <li role="presentation" (click)="subtabchange('past')" class="nav-item"><a
+                        [ngClass]="{'activetabs': subactivetab=='past'}" role="tab" tabindex="-1" aria-selected="false"
+                        aria-setsize="2" aria-posinset="2" class="nav-link">Past</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="currentpastcheckbox col-12 mt-2">
+                <div class="form-group d-inline-block v-t p-l-0 ml-3 mt-1  p-r-0 bet-options">
+
+                  <div role="group">
+                    <div role="radiogroup" class="">
+                      <div class="custom-control custom-control-inline custom-radio"><input [checked]="matched_check"
+                          (click)="deletedbetcolumn('matched')" type="radio" name="radio-inline"
+                          class="custom-control-input cursor" value="matched"><label class="custom-control-label"><span
+                            class="cursor" (click)="deletedbetcolumn('matched')">Matched</span></label></div>
+                      <div [hidden]="pastradiobox" class="custom-control custom-control-inline custom-radio"><input
+                          [checked]="unmatched_check" (click)="deletedbetcolumn('unmatched')" type="radio"
+                          name="radio-inline" class="custom-control-input cursor" value="unmatched"><label
+                          class="custom-control-label"><span (click)="deletedbetcolumn('unmatched')"
+                            class="cursor">Unmatched</span></label></div>
+                      <div class="custom-control custom-control-inline custom-radio"><input [checked]="deleted_check"
+                          (click)="deletedbetcolumn('deleted')" type="radio" name="radio-inline"
+                          class="custom-control-input cursor" value="deleted"><label class="custom-control-label"><span
+                            (click)="deletedbetcolumn('deleted')" class="cursor">Deleted</span></label></div>
+                    </div>
+
+                  </div>
+
+                </div>
+                <div class="searchbetlist">
+                  <label class="pr-2">Search:</label>
+                  <input type="text" placeholder="Type to search">
+                </div>
+              </div>
+              <div class="betlisttable col-12 mt-0 mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource_betlist" class="">
+
+                  <!-- Place Date Column -->
+                  <ng-container matColumnDef="Place_date">
+                    <th mat-header-cell *matHeaderCellDef> Place Date </th>
+                    <td mat-cell *matCellDef="let element" class="betlisttablefixedwidth"> {{element.Place_date}} </td>
+                  </ng-container>
+
+                  <!-- Description Column -->
+                  <ng-container matColumnDef="Description">
+                    <th mat-header-cell *matHeaderCellDef> Description </th>
+                    <td mat-cell *matCellDef="let element" class="betlisttablefixedwidth"> {{element.Description}} </td>
+                  </ng-container>
+
+                  <!-- Username Column -->
+                  <ng-container matColumnDef="Username">
+                    <th mat-header-cell *matHeaderCellDef> User name </th>
+                    <td mat-cell *matCellDef="let element" class="betlisttablefixedwidth"> {{element.Username}} </td>
+                  </ng-container>
+
+                  <!-- Bet Type Column -->
+                  <ng-container matColumnDef="Bet_type">
+                    <th mat-header-cell *matHeaderCellDef> Bet Type </th>
+                    <td mat-cell *matCellDef="let element" class="betlisttablefixedwidth"> {{element.Bet_type}}</td>
+                  </ng-container>
+
+
+                  <!-- User Rate Column -->
+                  <ng-container matColumnDef="User_rate">
+                    <th mat-header-cell *matHeaderCellDef> User Rate </th>
+                    <td mat-cell *matCellDef="let element" class="betlisttablefixedwidth"> {{element.User_rate}} </td>
+                  </ng-container>
+
+                  <!-- Profit Column -->
+                  <ng-container matColumnDef="Profit">
+                    <th mat-header-cell *matHeaderCellDef> Profit </th>
+                    <td mat-cell *matCellDef="let element" class="betlisttablefixedwidth"> {{element.Profit}}</td>
+                  </ng-container>
+
+
+                  <!-- Win/Loss Column -->
+                  <ng-container matColumnDef="Win_loss">
+                    <th mat-header-cell *matHeaderCellDef> Win/Loss </th>
+                    <td mat-cell *matCellDef="let element" class="betlisttablefixedwidth"> {{element.Win_loss}}
+                    </td>
+                  </ng-container>
+
+                  <!-- 	IP Column -->
+                  <ng-container matColumnDef="IP">
+                    <th mat-header-cell *matHeaderCellDef> IP </th>
+                    <td mat-cell *matCellDef="let element" class="betlisttablefixedwidth"> {{element.IP}} </td>
+                  </ng-container>
+
+                  <!-- Browser Details Column -->
+                  <ng-container matColumnDef="Browser_details">
+                    <th mat-header-cell *matHeaderCellDef> Browser Details </th>
+                    <td mat-cell *matCellDef="let element" class="betlisttablefixedwidth">
+                      {{element.Browser_details}} </td>
+                  </ng-container>
+
+                  <!-- Deleted Type Column -->
+
+                  <ng-container matColumnDef="Deleted_type">
+                    <th [hidden]="!deletecolumn" mat-header-cell *matHeaderCellDef>Deleted Type</th>
+                    <td [hidden]="!deletecolumn" mat-cell *matCellDef="let element" class="betlisttablefixedwidth">
+                      {{element.Deleted_type}} </td>
+                  </ng-container>
+
+                  <!-- Amount Column -->
+                  <ng-container matColumnDef="Amount">
+                    <th mat-header-cell *matHeaderCellDef> Amount </th>
+                    <td mat-cell *matCellDef="let element" class="betlisttablefixedwidth"> {{element.Amount}} </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns_betlist"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns_betlist;"></tr>
+                </table>
+                <mat-paginator [pageSizeOptions]="[1, 2, 5, 10]" showFirstLastButtons></mat-paginator>
+              </div>
+            </div>
+            <div [hidden]="!bettingtab" class="row mt-3">
+              <div class="col-12">
+                <div class="d-inline-block ">
+                  <div class="titlelabel">From</div>
+                  <input style="
+              padding: 4px;cursor: pointer;" class="mt-2" [owlDateTime]="dt3" [owlDateTimeTrigger]="dt3"
+                    placeholder="Select Date">
+                  <owl-date-time #dt3 pickerType="calendar"></owl-date-time>
+                </div>
+                <div class="d-inline-block m-l-7">
+                  <div class="titlelabel">To</div>
+                  <input style="
+          padding: 4px;cursor: pointer;" class="mt-2" [owlDateTime]="dt4" [owlDateTimeTrigger]="dt4"
+                    placeholder="Select Date">
+                  <owl-date-time #dt4 pickerType="calendar"></owl-date-time>
+                </div>
+                <div class="d-inline-block m-l-7">
+                  <button type="submit" class="btn btn-search"><img style="margin-top: -1px;"
+                      src="../../assets/search.png" alt=""><span class="ml-1">Search</span></button>
+                </div>
+              </div>
+              <div class="col-12">
+                <hr class="coloumnborder">
+              </div>
+              <div class="col-12">
+                <label>aaa<span class="negative-points ml-1">-1958.00</span></label>
+                <label class="ml-2">Total P&L<span class="negative-points ml-1">-1958.00</span></label>
+              </div>
+              <div class="bettingPLtable col-12 mt-0 mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource_bettingPL" class="">
+
+                  <!-- Market Column -->
+                  <ng-container matColumnDef="Market">
+                    <th mat-header-cell *matHeaderCellDef> Market </th>
+                    <td mat-cell *matCellDef="let element" class="bettingtablefixedwidth"> {{element.Market}} </td>
+                  </ng-container>
+
+                  <!-- Start Time Column -->
+                  <ng-container matColumnDef="Start_time">
+                    <th mat-header-cell *matHeaderCellDef> Start Time </th>
+                    <td mat-cell *matCellDef="let element" class="bettingtablefixedwidth"> {{element.Start_time}} </td>
+                  </ng-container>
+
+                  <!-- Settled Column -->
+                  <ng-container matColumnDef="Settled">
+                    <th mat-header-cell *matHeaderCellDef> Settled </th>
+                    <td mat-cell *matCellDef="let element" class="bettingtablefixedwidth"> {{element.Settled}} </td>
+                  </ng-container>
+
+                  <!-- Net Win Column -->
+                  <ng-container matColumnDef="Net_win">
+                    <th mat-header-cell *matHeaderCellDef> Net Win </th>
+                    <td mat-cell *matCellDef="let element" class="bettingtablefixedwidth positive-points">
+                      {{element.Net_win}}</td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns_bettingPL"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns_bettingPL;"></tr>
+                </table>
+
+              </div>
+            </div>
+            <div [hidden]="!statementtab" class="row mt-3">
+              <div class="col-12">
+                <div class="d-inline-block">
+                  <div [hidden]="!creditstatement" class="titlelabel">Balance Type</div>
+                  <select [hidden]="!creditstatement" class="form-control selectbalancetype mt-2">
+                    <option value="all">All</option>
+                    <option value="Upper">Upper</option>
+                    <option value="Down">Lower</option>
+                    <option value="CW">Only C/W</option>
+                    <option value="DW">Only D/W</option>
+                    <option value="W">Withdraw</option>
+                    <option value="D">Deposit</option>
+                  </select>
+                </div>
+                <div class="d-inline-block m-l-7">
+                  <div class="titlelabel">Search by user</div>
+                  <input type="text" class="mt-2" style="padding: 4px;" placeholder="Enter Atleast 3 Character">
+                </div>
+                <div class="d-inline-block m-l-7">
+                  <div class="titlelabel">From</div>
+                  <input style="
+                padding: 4px;cursor: pointer;" class="mt-2" [owlDateTime]="dt5" [owlDateTimeTrigger]="dt5"
+                    placeholder="Select Date">
+                  <owl-date-time #dt5 pickerType="calendar"></owl-date-time>
+                </div>
+                <div class="d-inline-block m-l-7">
+                  <div class="titlelabel">To</div>
+                  <input style="
+            padding: 4px;cursor: pointer;" class="mt-2" [owlDateTime]="dt6" [owlDateTimeTrigger]="dt6"
+                    placeholder="Select Date">
+                  <owl-date-time #dt6 pickerType="calendar"></owl-date-time>
+                </div>
+                <div class="d-inline-block m-l-7">
+                  <button type="submit" class="btn btn-search"><img style="margin-top: -1px;"
+                      src="../../assets/search.png" alt=""><span class="ml-1">Search</span></button>
+                </div>
+              </div>
+              <div class="col-12">
+                <hr class="coloumnborder">
+                <div class="mt-0">
+                  <ul role="tablist" class="nav nav-tabs">
+                    <li role="presentation" (click)="statementtype('P&L_Statement')" class="nav-item"><a
+                        [ngClass]="{'activetabs': statementtabactive=='P&L_Statement'}" role="tab" aria-selected="true"
+                        aria-setsize="2" aria-posinset="1" class="nav-link">P&L Statement</a></li>
+                    <li role="presentation" (click)="statementtype('Credit_Statement')" class="nav-item"><a
+                        [ngClass]="{'activetabs': statementtabactive=='Credit_Statement'}" role="tab" tabindex="-1"
+                        aria-selected="false" aria-setsize="2" aria-posinset="2" class="nav-link">Credit Statement</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div [hidden]="!PL_statement_table" class="Pl_statement_table col-12 mt-0 mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource_PL_Statement" class="">
+
+                  <!-- Date Column -->
+                  <ng-container matColumnDef="Date">
+                    <th mat-header-cell *matHeaderCellDef> Date </th>
+                    <td mat-cell *matCellDef="let element" class="plstatementtablefixedwidth"> {{element.Date}} </td>
+                  </ng-container>
+
+                  <!-- Description Column -->
+                  <ng-container matColumnDef="Description">
+                    <th mat-header-cell *matHeaderCellDef> Description </th>
+                    <td mat-cell *matCellDef="let element" class="plstatementtablefixedwidth"> {{element.Description}}
+                    </td>
+                  </ng-container>
+
+                  <!-- Ip Column -->
+                  <ng-container matColumnDef="Ip">
+                    <th mat-header-cell *matHeaderCellDef> IP </th>
+                    <td mat-cell *matCellDef="let element" class="plstatementtablefixedwidth"> {{element.Ip}} </td>
+                  </ng-container>
+
+                  <!-- From To Column -->
+                  <ng-container matColumnDef="From_To">
+                    <th mat-header-cell *matHeaderCellDef> From To </th>
+                    <td mat-cell *matCellDef="let element" class="plstatementtablefixedwidth">
+                      {{element.From_To}}</td>
+                  </ng-container>
+
+                  <!--Amount Column -->
+                  <ng-container matColumnDef="Amount">
+                    <th mat-header-cell *matHeaderCellDef> Amount </th>
+                    <td mat-cell *matCellDef="let element" class="plstatementtablefixedwidth">
+                      {{element.Amount}}</td>
+                  </ng-container>
+
+                  <!-- Closing Column -->
+                  <ng-container matColumnDef="Closing">
+                    <th mat-header-cell *matHeaderCellDef> Closing </th>
+                    <td mat-cell *matCellDef="let element" class="plstatementtablefixedwidth">
+                      {{element.Closing}}</td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns_PL_Statement"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns_PL_Statement;"></tr>
+                </table>
+
+              </div>
+              <div [hidden]="!Credit_statement_table" class="credit_statement_table col-12 mt-0 mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource_credit_Statement" class="">
+
+                  <!-- Date Column -->
+                  <ng-container matColumnDef="Date">
+                    <th mat-header-cell *matHeaderCellDef> Date </th>
+                    <td mat-cell *matCellDef="let element" class="creditstatementtablefixedwidth"> {{element.Date}}
+                    </td>
+                  </ng-container>
+
+                  <!-- User Name Column -->
+                  <ng-container matColumnDef="User_name">
+                    <th mat-header-cell *matHeaderCellDef> User Name </th>
+                    <td mat-cell *matCellDef="let element" class="creditstatementtablefixedwidth"> {{element.User_name}}
+                    </td>
+                  </ng-container>
+
+                  <!-- 	Master Name Column -->
+                  <ng-container matColumnDef="Master_name">
+                    <th mat-header-cell *matHeaderCellDef> Master Name </th>
+                    <td mat-cell *matCellDef="let element" class="creditstatementtablefixedwidth">
+                      {{element.Master_name}} </td>
+                  </ng-container>
+
+                  <!-- Remark Column -->
+                  <ng-container matColumnDef="Remark">
+                    <th mat-header-cell *matHeaderCellDef> Remark </th>
+                    <td mat-cell *matCellDef="let element" class="creditstatementtablefixedwidth">
+                      {{element.Remark}}</td>
+                  </ng-container>
+
+                  <!--Stake Column -->
+                  <ng-container matColumnDef="Stake">
+                    <th mat-header-cell *matHeaderCellDef> Stake </th>
+                    <td mat-cell *matCellDef="let element" class="creditstatementtablefixedwidth">
+                      {{element.Stake}}</td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns_credit_Statement"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns_credit_Statement;"></tr>
+                </table>
+
+              </div>
+            </div>
+            <div [hidden]="!transferstatementtab" class="row mt-1">
+              <div class="col-12">
+                <div class="header">
+                  <h1>Transfer Statement</h1>
+                  <div class="button-options">
+                    <div class=""><span class="btn btn-secondary m-l-5" style="padding: 10px 10px 8px 10px;">Download
+                        CSV</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="transfer_statement_table col-12 mt-0 mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource_transfer_Statement" class="">
+
+                  <!-- Date Column -->
+                  <ng-container matColumnDef="Date">
+                    <th mat-header-cell *matHeaderCellDef> Date </th>
+                    <td mat-cell *matCellDef="let element" class="transferstatementtablefixedwidth"> {{element.Date}}
+                    </td>
+                  </ng-container>
+
+                  <!-- Payer/Payee Column -->
+                  <ng-container matColumnDef="Payer_Payee">
+                    <th mat-header-cell *matHeaderCellDef> Payer/Payee </th>
+                    <td mat-cell *matCellDef="let element" class="transferstatementtablefixedwidth">
+                      {{element.Payer_Payee}}
+                    </td>
+                  </ng-container>
+
+                  <!-- 	Amount Column -->
+                  <ng-container matColumnDef="Amount">
+                    <th mat-header-cell *matHeaderCellDef>Amount</th>
+                    <td mat-cell *matCellDef="let element" class="transferstatementtablefixedwidth positive-points">
+                      {{element.Amount}} </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns_transfer_Statement"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns_transfer_Statement;"></tr>
+                </table>
+
+              </div>
+            </div>
+            <div [hidden]="!netexposuretab" class="row mt-2">
+              <div class="col-12">
+                <div class="button-options" style="float: right;">
+                  <div class=""><span class="btn btn-secondary m-l-5"
+                      style="padding: 10px 10px 8px 10px;">Refresh</span>
+                  </div>
+                </div>
+              </div>
+              <div class="netexposure_table col-12 mt-0 mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource_netexposure" class="">
+
+                  <!-- Stake Column -->
+                  <ng-container matColumnDef="Stake">
+                    <th mat-header-cell *matHeaderCellDef> Stake </th>
+                    <td mat-cell *matCellDef="let element" class="netexposuretablefixedwidth"> {{element.Stake}}
+                    </td>
+                  </ng-container>
+
+                  <!--First_possible Column -->
+                  <ng-container matColumnDef="First_possible">
+                    <th mat-header-cell *matHeaderCellDef>1</th>
+                    <td mat-cell *matCellDef="let element" class="netexposuretablefixedwidth">
+                      {{element.First_possible}}
+                    </td>
+                  </ng-container>
+
+                  <!--Double_possible Column -->
+                  <ng-container matColumnDef="Double_possible">
+                    <th mat-header-cell *matHeaderCellDef>X</th>
+                    <td mat-cell *matCellDef="let element" class="netexposuretablefixedwidth">
+                      {{element.Double_possible}} </td>
+                  </ng-container>
+
+                  <!--Second_possible Column -->
+                  <ng-container matColumnDef="Second_possible">
+                    <th mat-header-cell *matHeaderCellDef>2</th>
+                    <td mat-cell *matCellDef="let element" class="netexposuretablefixedwidth">
+                      {{element.Second_possible}} </td>
+                  </ng-container>
+
+                  <!-- stake Column -->
+                  <ng-container matColumnDef="stake">
+                    <th mat-header-cell *matHeaderCellDef>Stake</th>
+                    <td mat-cell *matCellDef="let element" class="netexposuretablefixedwidth">
+                      {{element.stake}} </td>
+                  </ng-container>
+
+                  <!--P/L Column -->
+                  <ng-container matColumnDef="P_L">
+                    <th mat-header-cell *matHeaderCellDef>P/L</th>
+                    <td mat-cell *matCellDef="let element" class="netexposuretablefixedwidth">
+                      {{element.P_L}} </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns_netexposure"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns_netexposure;"></tr>
+                </table>
+
+              </div>
+            </div>
+            <div [hidden]="!clientaccountstatementtab" class="row mt-3">
+              <div class="col-12">
+                <div class="d-inline-block ">
+                  <div class="titlelabel">From</div>
+                  <input style="
+              padding: 4px;cursor: pointer;" class="mt-2" [owlDateTime]="dt8" [owlDateTimeTrigger]="dt8"
+                    placeholder="Select Date">
+                  <owl-date-time #dt8 pickerType="calendar"></owl-date-time>
+                </div>
+                <div class="d-inline-block m-l-7">
+                  <div class="titlelabel">To</div>
+                  <input style="
+          padding: 4px;cursor: pointer;" class="mt-2" [owlDateTime]="dt9" [owlDateTimeTrigger]="dt9"
+                    placeholder="Select Date">
+                  <owl-date-time #dt9 pickerType="calendar"></owl-date-time>
+                </div>
+                <div class="d-inline-block m-l-7">
+                  <button type="submit" class="btn btn-search"><img style="margin-top: -1px;"
+                      src="../../assets/search.png" alt=""><span class="ml-1">Search</span></button>
+                </div>
+              </div>
+              <div class="col-12">
+                <hr class="coloumnborder">
+              </div>
+              <div class="clientaccount_table col-12 mt-0 mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource_clientaccount" class="">
+
+                  <!-- Date Column -->
+                  <ng-container matColumnDef="Date">
+                    <th mat-header-cell *matHeaderCellDef> Date </th>
+                    <td mat-cell *matCellDef="let element" class="clientaccounttablefixedwidth"> {{element.Date}}
+                    </td>
+                  </ng-container>
+
+                  <!--Description Column -->
+                  <ng-container matColumnDef="Description">
+                    <th mat-header-cell *matHeaderCellDef>Description</th>
+                    <td mat-cell *matCellDef="let element" class="clientaccounttablefixedwidth">
+                      {{element.Description}}
+                    </td>
+                  </ng-container>
+
+                  <!--P&L Column -->
+                  <ng-container matColumnDef="P_L">
+                    <th mat-header-cell *matHeaderCellDef>P&L</th>
+                    <td mat-cell *matCellDef="let element" class="clientaccounttablefixedwidth">
+                      {{element.P_L}} </td>
+                  </ng-container>
+
+                  <!--Credit Limit Column -->
+                  <ng-container matColumnDef="Credit_limit">
+                    <th mat-header-cell *matHeaderCellDef>Credit Limit</th>
+                    <td mat-cell *matCellDef="let element" class="clientaccounttablefixedwidth positive-points">
+                      {{element.Credit_limit}} </td>
+                  </ng-container>
+
+                  <!-- Balance Column -->
+                  <ng-container matColumnDef="Balance">
+                    <th mat-header-cell *matHeaderCellDef>Balance</th>
+                    <td mat-cell *matCellDef="let element" class="clientaccounttablefixedwidth">
+                      {{element.Balance}} </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns_clientaccount"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns_clientaccount;"></tr>
+                </table>
+
+              </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

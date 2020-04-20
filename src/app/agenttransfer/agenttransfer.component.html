@@ -1,0 +1,131 @@
+<app-header></app-header>
+<fixed-sidebar></fixed-sidebar>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xl-2 col-lg-2 col-md-2 d-sm-none d-none"></div>
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+      <div class="row">
+        <div class="col-xl-1 col-lg-1 col-md-0  col-12">
+
+        </div>
+
+        <div class="col-xl-11 col-lg-11  col-md-12 col-12 pl-5">
+          <div class="row">
+            <div class="col-12 mb-3">
+              <div class="balance">
+                <div class="status">
+                  <dl class="status-list">
+                    <dt>Balance Down:</dt>
+                    <dd class="negative-points">-1165.55</dd>
+                    <dt>Balance Up:</dt>
+                    <dd class="negative-points">-2310.65</dd>
+                    <dt>Net Exposure:</dt>
+                    <dd class="positive-points">0.00</dd>
+                    <dt>Available Credit:</dt>
+                    <dd class="normal-points">27623.80</dd>
+                  </dl>
+                  <div data-v-2b71b51b="" class="d-inline-block float-right" style="margin-top: -3.9px !important;">
+                    <button data-v-2b71b51b="" class="btn btn-secondary d-inline-block">Refresh</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="balanceinformation">
+          <div class="row">
+            <div class="col-12">
+              <div class="header">
+                <h1>Transfer</h1>
+             
+                <div class="button-options">
+                  <div id="export_1586457647060" class=""><span class="btn btn-primary m-l-5">Transfer All</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="row mt-3">
+            <div class="balance-info-table agent-table col-12">
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                    <!-- LoginName Column -->
+                    <ng-container matColumnDef="loginName">
+                      <th mat-header-cell *matHeaderCellDef> Login Name </th>
+                      <td mat-cell *matCellDef="let element" class="login-name tablefixedwidth"> {{element.loginName}} </td>
+                    </ng-container>
+                  
+                    <!-- UserName Column -->
+                    <ng-container matColumnDef="userName">
+                      <th mat-header-cell *matHeaderCellDef> User Name </th>
+                      <td mat-cell *matCellDef="let element" class="tablefixedwidth"> {{element.userName}} </td>
+                    </ng-container>
+                  
+                    <!-- AccountType Column -->
+                    <ng-container matColumnDef="accountType">
+                      <th mat-header-cell *matHeaderCellDef> Account Type </th>
+                      <td mat-cell *matCellDef="let element" class="tablefixedwidth"> {{element.accountType}}</td>
+                    </ng-container>
+                  
+                    <!-- Credit Column -->
+                    <ng-container matColumnDef="credit">
+                      <th mat-header-cell *matHeaderCellDef> Credit </th>
+                      <td mat-cell *matCellDef="let element" class="tablefixedwidth"> {{element.credit}} </td>
+                    </ng-container>
+
+                    <!-- Exposure Column -->
+                    <ng-container matColumnDef="exposure">
+                        <th mat-header-cell *matHeaderCellDef> Exposure </th>
+                        <td mat-cell *matCellDef="let element" class="tablefixedwidth"> {{element.exposure}} </td>
+                      </ng-container>
+                    
+                      <!-- Available Balance Column -->
+                      <ng-container matColumnDef="availableBalance">
+                        <th mat-header-cell *matHeaderCellDef> Available Balance </th>
+                        <td mat-cell *matCellDef="let element" class="tablefixedwidth"> {{element.availableBalance}} </td>
+                      </ng-container>
+                    
+                    
+                      <!-- Give Column -->
+                      <ng-container matColumnDef="give">
+                        <th mat-header-cell *matHeaderCellDef> Give </th>
+                        <td mat-cell *matCellDef="let element" class="tablefixedwidth"> {{element.give}} </td>
+                      </ng-container>
+
+                       <!-- Take Column -->
+                       <ng-container matColumnDef="take">
+                        <th mat-header-cell *matHeaderCellDef> Take </th>
+                        <td mat-cell *matCellDef="let element" class="tablefixedwidth"> {{element.take}} </td>
+                      </ng-container>
+
+                      <!-- Transfer Column -->
+                      <ng-container matColumnDef="transfer">
+                        <th mat-header-cell *matHeaderCellDef>Transfer</th>
+                        <td mat-cell *matCellDef="let element" class="tablefixedwidth">
+                            {{element.transfer}}
+                            <span class="alltransfer cursor">All <img class="ml-1 mr-2" src="../../assets/right.png" alt=""> </span>
+                            <input type="text" id="search" style="width: 77px;" placeholder="0">
+                            <span><button type="submit" class="btn btn-primary transfersubmitbtn ml-2">Submit</button></span>
+                        </td>
+                      </ng-container>
+                    
+                      <!-- Status Column -->
+                      <ng-container matColumnDef="status">
+                        <th mat-header-cell *matHeaderCellDef> Status </th>
+                        <td mat-cell *matCellDef="let element" class="status-text-danger tablefixedwidth"> {{element.status}} </td>
+                      </ng-container>
+                      
+                    
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                  </table>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

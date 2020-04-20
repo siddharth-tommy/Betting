@@ -1,0 +1,35 @@
+.title_header{
+    font-size: 1.75rem;
+    color: #fff;
+    font-family: Roboto;
+    margin-top: 9px;
+}
+.sub_title{
+    font-size: 21px;
+    color: #fff;
+    font-family: Roboto;
+}
+.main_content{
+    font-size: 13.2px;
+    color: #fff;
+    font-family: Roboto;
+}
+.sub_title1{
+    font-size: 19px;
+    color: #fff;
+    font-family: Roboto;
+}
+.main_content1{
+    font-size: 13.2px;
+    color: #fff;
+    font-family: Roboto;
+    margin-left: 40px;
+    line-height: 15px;
+}
+.main_content a {
+    text-decoration: underline;
+    font-size: 12.7px;
+    color: #fff;
+    font-family: Roboto;
+    margin-left: 40px;
+}
